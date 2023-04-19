@@ -62,10 +62,8 @@
                 },
                 "discount": {
                     "type": "number",
-                    "maximum": 1,
                     "minimum": 0,
                     "exclusiveMaximum": 1,
-                    "exclusiveMinimum": 0,
                     "description": "Скидка клиента на покупку валюты (0 = 0%, 1 = 100%)"
                 }
             },
