@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "description": "Объект данных с информацией о валюте",
+    "properties": {
+        "name": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "code": {
+            "type":"object",
+            "properties": {
+                "num": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 3,
+                    "pattern": "^\\d{3}$"
+                },
+                "char": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 3,
+                    "pattern": "^\\[A-Z]{3}$"
+                }
+            },
+            "required": ["num", "char"]
+        },
+        "nominal": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "price": {
+            "type": "number",
+            "exclusiveMinimum": 0
+        }
+    },
+    "required": [
+        "name",
+        "code",
+        "nominal",
+        "price"
+    ]
+}

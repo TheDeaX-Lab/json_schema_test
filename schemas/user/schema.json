@@ -1,0 +1,131 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "default": false,
+    "properties": {
+        "last_name": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "Фамилия"
+        },
+        "first_name": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "Имя"
+        },
+        "middle_name": {
+            "type": "string",
+            "maxLength": 255,
+            "description": "Отчество"
+        },
+        "identity_document": {
+            "type": "object",
+            "description": "Объект данных с информацией о документе удостоверяющий личность клиента",
+            "properties": {
+                "serial": {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 4,
+                    "pattern": "^\\d{4}$",
+                    "description": "Серия документа удостоверяющего личность"
+                },
+                "number": {
+                    "type": "string",
+                    "minLength": 6,
+                    "maxLength": 6,
+                    "pattern": "^\\d{6}$",
+                    "description": "Номер документа удостоверяющего личность"
+                }
+            },
+            "required": [
+                "serial",
+                "number"
+            ]
+        },
+        "day_of_birth": {
+            "type": "string",
+            "format": "date",
+            "description": "Дата рождения клиента"
+        },
+        "segment": {
+            "type": "object",
+            "description": "Объект данных с информацией о сегменте клиента",
+            "properties": {
+                "segment_type": {
+                    "type": "string",
+                    "enum": [
+                        "mass",
+                        "premier",
+                        "vip"
+                    ],
+                    "description": "Наименование сегмента клиента (Возможные значения: mass, premier, vip)"
+                },
+                "discount": {
+                    "type": "number",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "exclusiveMaximum": 1,
+                    "exclusiveMinimum": 0,
+                    "description": "Скидка клиента на покупку валюты (0 = 0%, 1 = 100%)"
+                }
+            },
+            "required": [
+                "segment_type",
+                "discount"
+            ]
+        }
+    },
+    "required": [
+        "last_name",
+        "first_name",
+        "middle_name",
+        "identity_document",
+        "day_of_birth",
+        "segment"
+    ],
+    "description": "Объект данных с информацией о пользователе в банке",
+    "examples": [
+        {
+            "last_name": "Харитонов",
+            "first_name": "Александр",
+            "middle_name": "Александрович",
+            "identity_document": {
+                "serial": "9999",
+                "number": "999999"
+            },
+            "day_of_birth": "2001-05-28",
+            "segment": {
+                "segment_type": "mass",
+                "discount": 0
+            }
+        },
+        {
+            "last_name": "Двойнин",
+            "first_name": "Александр",
+            "middle_name": "Александрович",
+            "identity_document": {
+                "serial": "9999",
+                "number": "999998"
+            },
+            "day_of_birth": "2002-05-28",
+            "segment": {
+                "segment_type": "premier",
+                "discount": 0.5
+            }
+        },
+        {
+            "last_name": "Воробьев",
+            "first_name": "Даниил",
+            "middle_name": "Александрович",
+            "identity_document": {
+                "serial": "9999",
+                "number": "999997"
+            },
+            "day_of_birth": "2003-05-28",
+            "segment": {
+                "segment_type": "vip",
+                "discount": 0.3
+            }
+        }
+    ]
+}

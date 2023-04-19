@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "Список валют",
+    "items": {
+        "$ref": "/types/valute/schema.json"
+    },
+    "maxItems": 100
+}
