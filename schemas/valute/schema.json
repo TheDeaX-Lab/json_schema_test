@@ -8,30 +8,38 @@
             "maxLength": 255
         },
         "code": {
-            "type":"object",
+            "type": "object",
+            "description": "Объект данных с информацией об уникальном ключе валюты",
             "properties": {
                 "num": {
                     "type": "string",
                     "minLength": 3,
                     "maxLength": 3,
-                    "pattern": "^\\d{3}$"
+                    "pattern": "^\\d{3}$",
+                    "description": "Цифровой код ключа"
                 },
                 "char": {
                     "type": "string",
                     "minLength": 3,
                     "maxLength": 3,
-                    "pattern": "^\\[A-Z]{3}$"
+                    "pattern": "^\\[A-Z]{3}$",
+                    "description": "Буквенный код ключа"
                 }
             },
-            "required": ["num", "char"]
+            "required": [
+                "num",
+                "char"
+            ]
         },
         "nominal": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 1,
+            "description": "Номинал выдаваемой валюты"
         },
         "price": {
             "type": "number",
-            "exclusiveMinimum": 0
+            "exclusiveMinimum": 0,
+            "description": "Цена валюты на заданный номинал"
         }
     },
     "required": [
@@ -39,5 +47,34 @@
         "code",
         "nominal",
         "price"
+    ],
+    "examples": [
+        {
+            "name": "Белорусский рубль",
+            "code": {
+                "num": "933",
+                "char": "BYN"
+            },
+            "nominal": 1,
+            "price": 27.6874
+        },
+        {
+            "name": "Австралийский доллар",
+            "code": {
+                "num": "036",
+                "char": "AUD"
+            },
+            "nominal": 1,
+            "price": 54.8131
+        },
+        {
+            "name": "Узбекских сумов",
+            "code": {
+                "num": "860",
+                "char": "UZS"
+            },
+            "nominal": 10000,
+            "price": 71.3408
+        }
     ]
 }

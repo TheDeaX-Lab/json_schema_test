@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "description": "Описание ответа на запрос",
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "exception": {
+                    "$ref": "https://thedeax-lab.github.io/json_schema_test/schemas/base_exception/schema.json"
+                },
+                "params": {
+                    "$ref": "https://thedeax-lab.github.io/json_schema_test/schemas/params_of_GetPersonalCurrencyRate/schema.json"
+                }
+            },
+            "required": [
+                "exception",
+                "params"
+            ]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "response": {
+                    "$ref": "https://thedeax-lab.github.io/json_schema_test/schemas/result_of_GetPersonalCurrencyRate/schema.json"
+                }
+            },
+            "required": [
+                "response"
+            ]
+        }
+    ],
+    "examples": [
+        {
+            "exception": {
+                "code": "E00001",
+                "message": "Такого пользователя не существует"
+            },
+            "params": {
+                "user": {
+                    "last_name": "Воробьев",
+                    "first_name": "Даниил",
+                    "middle_name": "Александрович",
+                    "identity_document": {
+                        "serial": "9999",
+                        "number": "999997"
+                    },
+                    "day_of_birth": "2003-05-28",
+                    "segment": {
+                        "segment_type": "vip",
+                        "discount": 0.3
+                    }
+                },
+                "valute": {
+                    "name": "Белорусский рубль",
+                    "code": {
+                        "num": "933",
+                        "char": "BYN"
+                    },
+                    "nominal": 1,
+                    "price": 27.6874
+                }
+            }
+        },
+        {
+            "response": {
+                "price_sell": 30.2,
+                "price_buy": 40.5
+            }
+        }
+    ]
+}

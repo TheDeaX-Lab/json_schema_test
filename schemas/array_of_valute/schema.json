@@ -4,5 +4,36 @@
     "items": {
         "$ref": "https://thedeax-lab.github.io/json_schema_test/schemas/valute/schema.json"
     },
-    "maxItems": 100
+    "maxItems": 100,
+    "examples": [
+        [
+            {
+                "name": "Белорусский рубль",
+                "code": {
+                    "num": "933",
+                    "char": "BYN"
+                },
+                "nominal": 1,
+                "price": 27.6874
+            },
+            {
+                "name": "Австралийский доллар",
+                "code": {
+                    "num": "036",
+                    "char": "AUD"
+                },
+                "nominal": 1,
+                "price": 54.8131
+            },
+            {
+                "name": "Узбекских сумов",
+                "code": {
+                    "num": "860",
+                    "char": "UZS"
+                },
+                "nominal": 10000,
+                "price": 71.3408
+            }
+        ]
+    ]
 }

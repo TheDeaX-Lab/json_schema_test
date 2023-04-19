@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "description": "Базовый объект описания ошибки",
+    "properties": {
+        "code": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 6,
+            "pattern": "^E\\d{5}$",
+            "description": "Код ошибки"
+        },
+        "message": {
+            "type": "string",
+            "maxLength": 255,
+            "description": "Краткое описание ошибки"
+        }
+    },
+    "required": [
+        "code",
+        "message"
+    ],
+    "examples": [
+        {
+            "code": "E00001",
+            "message": "Ошибка на стороне сервера"
+        },
+        {
+            "code": "E00002",
+            "message": "Такого пользователя не существует"
+        },
+        {
+            "code": "E00003",
+            "message": "Такой валюты не существует"
+        }
+    ]
+}
